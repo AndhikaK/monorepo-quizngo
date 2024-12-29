@@ -28,7 +28,11 @@
     "@expo/metro-config": "*",
     "react-native-svg-transformer": "*",
     "react": "*",
-    "expo-dev-client": "*"
+    "expo-dev-client": "*",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*",
+    "@react-navigation/stack": "*",
+    "react-native-gesture-handler": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
