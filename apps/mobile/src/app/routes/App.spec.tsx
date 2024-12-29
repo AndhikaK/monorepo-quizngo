@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { render } from '@testing-library/react-native';
 
-import App from './App';
+import { DashboardScreen } from './dashboard';
 
 test('renders correctly', () => {
-  const { getByTestId } = render(<App />);
+  const { getByTestId } = render(<DashboardScreen />);
   expect(getByTestId('heading')).toHaveTextContent('Welcome');
 });
