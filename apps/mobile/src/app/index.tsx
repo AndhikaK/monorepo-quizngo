@@ -1,6 +1,9 @@
-import { ScrollView, Text } from "react-native";
+import { Router } from './router'
+
+import { NavigationContainer } from '@react-navigation/native'
 
 export default function App() {
-  return <Text testID="heading">Welcome</Text>
-
+  return <NavigationContainer>
+    <Router />
+  </NavigationContainer>
 }
