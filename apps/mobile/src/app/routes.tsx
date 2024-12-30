@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { Text } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { DashboardScreen } from './routes/dashboard';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export function AppRouter() {
   return (

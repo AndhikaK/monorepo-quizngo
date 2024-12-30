@@ -31,8 +31,9 @@
     "expo-dev-client": "*",
     "react-native-screens": "*",
     "react-native-safe-area-context": "*",
-    "@react-navigation/stack": "*",
-    "react-native-gesture-handler": "*"
+    "react-native-gesture-handler": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
