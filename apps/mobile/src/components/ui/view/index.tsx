@@ -1,6 +1,6 @@
 import { View as RNView, ViewProps as RNViewProps } from 'react-native';
 
-import { ColorTokenKey, makeStyles } from '../../../themes/';
+import { ColorTokenKey, makeStyles } from '@/themes';
 
 export type ViewProps = {
   backgroundColor?: Extract<ColorTokenKey, `bg-${string}`>;

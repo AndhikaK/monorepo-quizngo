@@ -5,6 +5,7 @@ import { useTheme } from './theme.provider';
 import { ColorToken } from './theme.type';
 
 export const makeStyles =
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   <T extends StyleSheet.NamedStyles<T> | StyleSheet.NamedStyles<any>, V>(
     styles:
       | T

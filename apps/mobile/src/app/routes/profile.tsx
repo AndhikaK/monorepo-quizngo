@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
-import { RippleTouchable } from '../../components/ui';
-import { useTheme } from '../../themes';
+import { RippleTouchable } from '@/components/ui';
+import { useTheme } from '@/themes';
 
 export function ProfileScreen() {
   const { changeTheme, colorScheme } = useTheme();
