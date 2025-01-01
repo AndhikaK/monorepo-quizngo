@@ -33,7 +33,8 @@
     "react-native-safe-area-context": "*",
     "react-native-gesture-handler": "*",
     "@react-navigation/native": "*",
-    "@react-navigation/native-stack": "*"
+    "@react-navigation/native-stack": "*",
+    "@react-navigation/bottom-tabs": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
