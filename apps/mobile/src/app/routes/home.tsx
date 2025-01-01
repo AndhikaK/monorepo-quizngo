@@ -1,5 +1,5 @@
-import { Text } from 'react-native';
+import { Typography } from '@/components/ui';
 
 export function DashboardScreen() {
-  return <Text>This is dashboard screen</Text>;
+  return <Typography>This is dashboard screen</Typography>;
 }

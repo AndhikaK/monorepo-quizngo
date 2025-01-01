@@ -1,6 +1,6 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
-import { RippleTouchable } from '@/components/ui';
+import { RippleTouchable, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
 export function ProfileScreen() {
@@ -11,9 +11,9 @@ export function ProfileScreen() {
       <RippleTouchable
         onPress={() => changeTheme(colorScheme === 'light' ? 'dark' : 'light')}
       >
-        <Text>Change Theme</Text>
+        <Typography>Change Theme</Typography>
       </RippleTouchable>
-      <Text>This is ProfileScreen {colorScheme}</Text>
+      <Typography>This is ProfileScreen {colorScheme}</Typography>
     </View>
   );
 }

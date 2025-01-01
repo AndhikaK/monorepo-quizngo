@@ -1,6 +1,8 @@
 import { ColorToken } from './theme.type';
 
 export const light: ColorToken = {
+  'text-primary': '#000000',
+
   'border-primary': '#ECECEC',
 
   'bg-primary': '#FFFFFF',
@@ -8,6 +10,8 @@ export const light: ColorToken = {
 };
 
 export const dark: ColorToken = {
+  'text-primary': '#FFFFFF',
+
   'border-primary': '#2C2C2C',
 
   'bg-primary': '#121212',

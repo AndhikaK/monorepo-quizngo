@@ -9,7 +9,11 @@ export type ThemeProviderType = {
   changeTheme: (mode: ColorSchemeName) => void;
 };
 
-export type ColorTokenKey = 'border-primary' | 'bg-primary' | 'bg-secondary';
+export type ColorTokenKey =
+  | 'text-primary'
+  | 'border-primary'
+  | 'bg-primary'
+  | 'bg-secondary';
 
 export type ColorToken = Record<ColorTokenKey, ColorValue>;
 
