@@ -42,7 +42,7 @@ type RippleState = {
   R: number;
 };
 
-const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
+export const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
   const {
     rippleColor = 'rgb(0, 0, 0)',
     rippleOpacity = 0.3,
@@ -214,4 +214,3 @@ const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
   );
 };
 
-export default RippleTouchable;

@@ -1,8 +1,8 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import Touchable from '../ripple-touchable';
 import { makeStyles } from '../../../themes';
+import { RippleTouchable } from '../ripple-touchable';
 import { View } from '../view';
 
 export function BottomTabItem({
@@ -42,7 +42,7 @@ export function BottomTabItem({
         };
 
         return (
-          <Touchable
+          <RippleTouchable
             key={index}
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -57,7 +57,7 @@ export function BottomTabItem({
                 color: 'red',
                 size: 20,
               })}
-          </Touchable>
+          </RippleTouchable>
         );
       })}
     </View>

@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { DashboardScreen } from './routes/home';
-import { BottomTabItem } from '../components/ui/bottom-tab-item';
+import { BottomTabItem } from '../components/ui';
 import { ProfileScreen } from './routes/profile';
 
 const Stack = createNativeStackNavigator();

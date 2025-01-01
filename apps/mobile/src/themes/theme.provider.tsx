@@ -18,7 +18,7 @@ export function ThemeProvider(props: PropsWithChildren) {
     setCurrentColorScheme(mode);
   };
 
-  const themeContextValue = useMemo(() => {
+  const themeContextValue: ThemeProviderType = useMemo(() => {
     return {
       Colors: Colors[currenctColorScheme],
       colorScheme: currenctColorScheme,

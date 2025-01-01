@@ -8,12 +8,11 @@ export const light: ColorToken = {
 };
 
 export const dark: ColorToken = {
-  'border-primary': '#ECECEC',
+  'border-primary': '#2C2C2C',
 
-  'bg-primary': '#FFFFFF',
-  'bg-secondary': '#EEEEEE',
+  'bg-primary': '#121212',
+  'bg-secondary': '#1E1E1E',
 };
-
 export const Colors = {
   light,
   dark,

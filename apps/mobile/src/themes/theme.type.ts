@@ -4,6 +4,7 @@ export type ColorSchemeName = 'light' | 'dark';
 
 export type ThemeProviderType = {
   Colors: ColorToken;
+  colorScheme: ColorSchemeName;
 
   changeTheme: (mode: ColorSchemeName) => void;
 };
