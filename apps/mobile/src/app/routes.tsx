@@ -24,6 +24,7 @@ const BottomTabRouter = () => {
         name="HomeScreen"
         component={DashboardScreen}
         options={{
+          headerShown: true,
           tabBarIcon: ({ focused }) => (
             <View>
               <Text style={{ color: focused ? 'red' : 'black' }}>Home</Text>

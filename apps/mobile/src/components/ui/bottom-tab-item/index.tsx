@@ -1,6 +1,8 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import Touchable from '../ripple-touchable';
 
 import { Colors } from '../../../config/themes';
 
@@ -37,7 +39,7 @@ export function BottomTabItem({
         };
 
         return (
-          <TouchableOpacity
+          <Touchable
             key={index}
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -46,13 +48,15 @@ export function BottomTabItem({
             onLongPress={onLongPress}
             style={style.tabItemContainer}
           >
+            {/* <View style={style.tabItemContainer}> */}
             {options &&
               options?.tabBarIcon?.({
                 focused: isFocused,
                 color: 'red',
                 size: 20,
               })}
-          </TouchableOpacity>
+            {/* </View> */}
+          </Touchable>
         );
       })}
     </View>
