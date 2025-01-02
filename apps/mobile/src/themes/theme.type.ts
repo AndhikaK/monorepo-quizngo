@@ -1,5 +1,3 @@
-import { ColorValue } from 'react-native';
-
 export type ColorSchemeName = 'light' | 'dark';
 
 export type ThemeProviderType = {
@@ -11,10 +9,12 @@ export type ThemeProviderType = {
 
 export type ColorTokenKey =
   | 'text-primary'
+  | 'text-disabled'
+  | 'text-accent'
   | 'border-primary'
   | 'bg-primary'
   | 'bg-secondary';
 
-export type ColorToken = Record<ColorTokenKey, ColorValue>;
+export type ColorToken = Record<ColorTokenKey, string>;
 
 export type ThemeTokenKey = 'sm' | 'md' | 'lg' | 'xl';
