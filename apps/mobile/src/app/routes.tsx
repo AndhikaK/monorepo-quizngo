@@ -1,12 +1,17 @@
 import { Suspense } from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { View } from 'react-native';
+import {
+  DefaultTheme,
+  NavigationContainer,
+  Theme,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { DashboardScreen } from './routes/home';
-import { BottomTabItem } from '../components/ui/bottom-tab-item';
-import { ProfileScreen } from './routes/profile';
+import { DashboardScreen } from '@/app/routes/home';
+import { ProfileScreen } from '@/app/routes/profile';
+import { BottomTabItem, Typography } from '@/components/ui';
+import { useTheme } from '@/themes';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,6 +22,7 @@ const BottomTabRouter = () => {
       initialRouteName="ProfileScreen"
       screenOptions={{
         headerShown: false,
+        headerShadowVisible: false,
       }}
       tabBar={(props) => <BottomTabItem {...props} />}
     >
@@ -27,7 +33,9 @@ const BottomTabRouter = () => {
           headerShown: true,
           tabBarIcon: ({ focused }) => (
             <View>
-              <Text style={{ color: focused ? 'red' : 'black' }}>Home</Text>
+              <Typography color={focused ? 'text-accent' : 'text-disabled'}>
+                Home
+              </Typography>
             </View>
           ),
         }}
@@ -38,7 +46,9 @@ const BottomTabRouter = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <Text style={{ color: focused ? 'red' : 'black' }}>Profil</Text>
+              <Typography color={focused ? 'text-accent' : 'text-disabled'}>
+                Profil
+              </Typography>
             </View>
           ),
         }}
@@ -48,16 +58,36 @@ const BottomTabRouter = () => {
 };
 
 export function AppRouter() {
+  const { colorScheme, Colors } = useTheme();
+
+  const navigationTheme: Theme = {
+    ...DefaultTheme,
+    dark: colorScheme === 'dark',
+    colors: {
+      background: Colors['bg-secondary'],
+      border: Colors['border-primary'],
+      card: Colors['bg-primary'],
+      notification: Colors['bg-primary'],
+      primary: Colors['bg-primary'],
+      text: Colors['text-primary'],
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
         initialRouteName="DashboardScreen"
         screenLayout={({ children }) => (
-          <Suspense fallback={<Text>Loading...</Text>}>{children}</Suspense>
+          <Suspense fallback={<Typography>Loading...</Typography>}>
+            {children}
+          </Suspense>
         )}
         screenOptions={{
           headerShown: false,
+          headerShadowVisible: false,
           statusBarBackgroundColor: 'transparent',
+          statusBarTranslucent: true,
+          statusBarStyle: colorScheme === 'dark' ? 'light' : 'dark',
         }}
       >
         <Stack.Screen name="DashboardScreen" component={BottomTabRouter} />

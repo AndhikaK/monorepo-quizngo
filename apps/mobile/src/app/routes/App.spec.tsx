@@ -1,9 +1,12 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { DashboardScreen } from './dashboard';
+import { DashboardScreen } from './home';
+import { AppProvider } from '../provider';
 
 test('renders correctly', () => {
-  render(<DashboardScreen />);
+  render(<DashboardScreen />, {
+    wrapper: AppProvider,
+  });
 
   const text = screen.getByText('This is dashboard screen');
 
