@@ -45,6 +45,8 @@ const BottomTabRouter = () => {
         name="ProfileScreen"
         component={ProfileScreen}
         options={{
+          headerShown: true,
+          headerTitle: 'Account & Settings',
           tabBarIcon: ({ focused }) => (
             <View>
               <Typography color={focused ? 'text-accent' : 'text-disabled'}>

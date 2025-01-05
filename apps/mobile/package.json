@@ -37,7 +37,8 @@
     "@react-navigation/bottom-tabs": "*",
     "@react-navigation/elements": "*",
     "expo-font": "*",
-    "@expo-google-fonts/inter": "*"
+    "@expo-google-fonts/inter": "*",
+    "@expo/vector-icons": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"

@@ -1,31 +1,34 @@
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
-import { RippleTouchable, Typography } from '@/components/ui';
-import { makeStyles, useTheme } from '@/themes';
+import { ActionList, ActionListProps } from '@/components/ui';
+import { makeStyles } from '@/themes';
 
 export function ProfileScreen() {
-  const { changeTheme, colorScheme } = useTheme();
-
   const styles = useStyles();
 
+  const preferencesActionList: ActionListProps['actions'] = [
+    {
+      title: 'Language',
+    },
+    {
+      title: 'System preference',
+    },
+  ];
+
   return (
-    <View style={styles.container}>
-      <RippleTouchable
-        onPress={() => changeTheme(colorScheme === 'light' ? 'dark' : 'light')}
-      >
-        <Typography>Change Theme</Typography>
-      </RippleTouchable>
-      <Typography>This is ProfileScreen {colorScheme}</Typography>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <ActionList title="Preferences" actions={preferencesActionList} />
+    </ScrollView>
   );
 }
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((themes) => {
+  const { Spacing } = themes;
+
   return {
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+      padding: Spacing.lg,
     },
   };
 });

@@ -1,4 +1,4 @@
-import { ColorToken, SpacingToken, ThemeTokenKey } from './theme.type';
+import { ColorToken, SpacingToken } from './theme.type';
 
 export const light: ColorToken = {
   'text-primary': '#000000',
