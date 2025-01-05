@@ -17,7 +17,7 @@ export function Header(props: BottomTabHeaderProps) {
   return (
     <View backgroundColor="bg-primary" style={{ paddingTop: insets.top }}>
       <View style={styles.container}>
-        <Typography variant="subheading" fontWeight='500'>{title}</Typography>
+        <Typography variant="subheading" fontWeight='semibold'>{title}</Typography>
       </View>
     </View>
   );
