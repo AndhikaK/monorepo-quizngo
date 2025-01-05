@@ -10,6 +10,7 @@ import {
   LayoutChangeEvent,
 } from 'react-native';
 import { styles, radius } from './styles';
+import { useTheme } from '@/themes';
 
 type RippleTouchableProps = {
   rippleColor?: string;
@@ -44,7 +45,6 @@ type RippleState = {
 
 export const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
   const {
-    rippleColor = 'rgb(0, 0, 0)',
     rippleOpacity = 0.3,
     rippleDuration = 400,
     rippleSize = 0,
@@ -62,6 +62,10 @@ export const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
     children,
     ...otherProps
   } = props;
+
+  const { Colors } = useTheme();
+
+  const rippleColor = Colors['bg-inverse'];
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [ripples, setRipples] = useState<RippleState[]>([]);
@@ -213,4 +217,3 @@ export const RippleTouchable: React.FC<RippleTouchableProps> = (props) => {
     </TouchableWithoutFeedback>
   );
 };
-

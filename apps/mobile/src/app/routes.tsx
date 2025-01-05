@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { DashboardScreen } from '@/app/routes/home';
 import { ProfileScreen } from '@/app/routes/profile';
-import { BottomTabItem, Typography } from '@/components/ui';
+import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
 const Stack = createNativeStackNavigator();
@@ -19,10 +19,11 @@ const Tab = createBottomTabNavigator();
 const BottomTabRouter = () => {
   return (
     <Tab.Navigator
-      initialRouteName="ProfileScreen"
+      initialRouteName="HomeScreen"
       screenOptions={{
         headerShown: false,
         headerShadowVisible: false,
+        header: (props) => <Header {...props} />,
       }}
       tabBar={(props) => <BottomTabItem {...props} />}
     >
@@ -88,6 +89,7 @@ export function AppRouter() {
           statusBarBackgroundColor: 'transparent',
           statusBarTranslucent: true,
           statusBarStyle: colorScheme === 'dark' ? 'light' : 'dark',
+          header: (props) => null
         }}
       >
         <Stack.Screen name="DashboardScreen" component={BottomTabRouter} />
