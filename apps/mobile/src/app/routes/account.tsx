@@ -1,17 +1,25 @@
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { ActionList, ActionListProps } from '@/components/ui';
+import { ActionList, ActionListProps, Icon } from '@/components/ui';
 import { makeStyles } from '@/themes';
 
-export function ProfileScreen() {
+export function AccountScreen() {
   const styles = useStyles();
+  const navigation = useNavigation();
 
   const preferencesActionList: ActionListProps['actions'] = [
     {
       title: 'Language',
+      leadingIcon: <Icon name="language-outline" />,
+      onPress: () =>
+        navigation.navigate('account/preferences/system-preferences'),
     },
     {
-      title: 'System preference',
+      title: 'System preferences',
+      leadingIcon: <Icon name="moon-outline" />,
+      onPress: () =>
+        navigation.navigate('account/preferences/system-preferences'),
     },
   ];
 

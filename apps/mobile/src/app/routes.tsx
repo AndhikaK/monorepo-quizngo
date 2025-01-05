@@ -9,7 +9,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { DashboardScreen } from '@/app/routes/home';
-import { ProfileScreen } from '@/app/routes/profile';
+import { AccountScreen } from '@/app/routes/account';
+import { SystemPreferenceScreen } from '@/app/routes/preferences/system-preference';
 import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
@@ -19,7 +20,7 @@ const Tab = createBottomTabNavigator();
 const BottomTabRouter = () => {
   return (
     <Tab.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="dashboard/home"
       screenOptions={{
         headerShown: false,
         headerShadowVisible: false,
@@ -28,10 +29,9 @@ const BottomTabRouter = () => {
       tabBar={(props) => <BottomTabItem {...props} />}
     >
       <Tab.Screen
-        name="HomeScreen"
+        name="dashboard/home"
         component={DashboardScreen}
         options={{
-          headerShown: true,
           tabBarIcon: ({ focused }) => (
             <View>
               <Typography color={focused ? 'text-accent' : 'text-disabled'}>
@@ -42,8 +42,8 @@ const BottomTabRouter = () => {
         }}
       />
       <Tab.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
+        name="dashboard/profile"
+        component={AccountScreen}
         options={{
           headerShown: true,
           headerTitle: 'Account & Settings',
@@ -79,22 +79,36 @@ export function AppRouter() {
   return (
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
-        initialRouteName="DashboardScreen"
+        initialRouteName="dashboard"
         screenLayout={({ children }) => (
           <Suspense fallback={<Typography>Loading...</Typography>}>
             {children}
           </Suspense>
         )}
         screenOptions={{
+          animation: 'slide_from_right',
           headerShown: false,
           headerShadowVisible: false,
           statusBarBackgroundColor: 'transparent',
           statusBarTranslucent: true,
           statusBarStyle: colorScheme === 'dark' ? 'light' : 'dark',
-          header: (props) => null
+          header: (props) => <Header {...props} />,
         }}
       >
-        <Stack.Screen name="DashboardScreen" component={BottomTabRouter} />
+        <Stack.Screen name="dashboard" component={BottomTabRouter} />
+
+        <Stack.Group>
+          <Stack.Group>
+            <Stack.Screen
+              name="account/preferences/system-preferences"
+              component={SystemPreferenceScreen}
+              options={{
+                headerShown: true,
+                headerTitle: 'System preferences',
+              }}
+            />
+          </Stack.Group>
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );

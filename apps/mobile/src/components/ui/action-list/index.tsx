@@ -14,6 +14,7 @@ export type ActionListProps = {
 type ActionItemProps = {
   leadingIcon: ReactNode;
   title: string;
+  onPress: () => void;
   isLastItem?: boolean;
 };
 export function ActionList(props: ActionListProps) {
@@ -48,11 +49,13 @@ function ActionItem(props: ActionItemProps) {
     leadingIcon = <Icon name="chevron-down-circle" />,
     title,
     isLastItem,
+    onPress
   } = props;
   const styles = useStyles();
 
   return (
     <RippleTouchable
+    onPress={onPress}
       style={[styles.actionItemContainer, !isLastItem && styles.borderBottom]}
     >
       <View style={styles.actionItemTitleWrapper}>

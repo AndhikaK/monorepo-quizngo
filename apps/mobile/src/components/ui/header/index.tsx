@@ -1,12 +1,14 @@
-import { BottomTabHeaderProps } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getHeaderTitle } from '@react-navigation/elements';
+import { BottomTabHeaderProps } from '@react-navigation/bottom-tabs';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+
+import { makeStyles } from '@/themes';
 
 import { Typography } from '../typography';
 import { View } from '../view';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { makeStyles } from '@/themes';
 
-export function Header(props: BottomTabHeaderProps) {
+export function Header(props: BottomTabHeaderProps | NativeStackHeaderProps) {
   const { options, route } = props;
 
   const insets = useSafeAreaInsets();
@@ -17,14 +19,16 @@ export function Header(props: BottomTabHeaderProps) {
   return (
     <View backgroundColor="bg-primary" style={{ paddingTop: insets.top }}>
       <View style={styles.container}>
-        <Typography variant="subheading" fontWeight='semibold'>{title}</Typography>
+        <Typography variant="subheading" fontWeight="semibold">
+          {title}
+        </Typography>
       </View>
     </View>
   );
 }
 
 const useStyles = makeStyles((themes) => {
-  const {Colors, Spacing } = themes;
+  const { Colors, Spacing } = themes;
 
   return {
     container: {
