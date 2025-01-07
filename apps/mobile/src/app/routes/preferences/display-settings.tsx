@@ -1,7 +1,10 @@
+import { NavigationScreenProps } from '@/app/routes.type';
 import { useHardwareBackPress } from '@/common/hooks';
 import { Appbar, View } from '@/components/ui';
 
-export function DisplaySettingsScreen() {
+type ScreenProps =
+  NavigationScreenProps<'account/preferences/display-settings'>;
+export function DisplaySettingsScreen(props: ScreenProps) {
   const { goBackAction } = useHardwareBackPress();
 
   return (

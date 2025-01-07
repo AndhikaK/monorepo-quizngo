@@ -14,8 +14,10 @@ import { DisplaySettingsScreen } from '@/app/routes/preferences/display-settings
 import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+import { BottomTabParamList, RootStackParamList } from './routes.type';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabRouter = () => {
   return (
@@ -42,7 +44,7 @@ const BottomTabRouter = () => {
         }}
       />
       <Tab.Screen
-        name="dashboard/profile"
+        name="dashboard/account"
         component={AccountScreen}
         options={{
           headerShown: true,
