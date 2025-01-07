@@ -10,5 +10,6 @@ type IconName =
   | 'person-outline'
   | 'chevron-forward-outline'
   | 'chevron-down-circle'
+  | 'chevron-back-outline'
   | 'language-outline'
   | 'moon-outline';

@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { DashboardScreen } from '@/app/routes/home';
 import { AccountScreen } from '@/app/routes/account';
-import { SystemPreferenceScreen } from '@/app/routes/preferences/system-preference';
+import { DisplaySettingsScreen } from '@/app/routes/preferences/display-settings';
 import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
@@ -100,12 +100,8 @@ export function AppRouter() {
         <Stack.Group>
           <Stack.Group>
             <Stack.Screen
-              name="account/preferences/system-preferences"
-              component={SystemPreferenceScreen}
-              options={{
-                headerShown: true,
-                headerTitle: 'System preferences',
-              }}
+              name="account/preferences/display-settings"
+              component={DisplaySettingsScreen}
             />
           </Stack.Group>
         </Stack.Group>

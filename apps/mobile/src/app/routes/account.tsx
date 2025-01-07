@@ -13,13 +13,13 @@ export function AccountScreen() {
       title: 'Language',
       leadingIcon: <Icon name="language-outline" />,
       onPress: () =>
-        navigation.navigate('account/preferences/system-preferences'),
+        navigation.navigate('account/preferences/display-settings'),
     },
     {
-      title: 'System preferences',
+      title: 'Display settings',
       leadingIcon: <Icon name="moon-outline" />,
       onPress: () =>
-        navigation.navigate('account/preferences/system-preferences'),
+        navigation.navigate('account/preferences/display-settings'),
     },
   ];
 
