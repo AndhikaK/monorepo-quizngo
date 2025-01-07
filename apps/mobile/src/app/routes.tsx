@@ -12,7 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AccountScreen } from '@/app/routes/account';
 import { DisplaySettingsScreen } from '@/app/routes/account/preferences/display-settings';
 import { DashboardScreen } from '@/app/routes/home';
-import { BottomTabItem, Header, Typography } from '@/components/ui';
+import { BottomTabItem, Header, Icon, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
 import { BottomTabParamList, RootStackParamList } from './routes.type';
@@ -36,11 +36,10 @@ const BottomTabRouter = () => {
         component={DashboardScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Typography color={focused ? 'text-accent' : 'text-disabled'}>
-                Home
-              </Typography>
-            </View>
+            <Icon
+              name="home-outline"
+              color={focused ? 'text-accent' : 'text-disabled'}
+            />
           ),
         }}
       />
@@ -51,11 +50,10 @@ const BottomTabRouter = () => {
           headerShown: true,
           headerTitle: 'Account & Settings',
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Typography color={focused ? 'text-accent' : 'text-disabled'}>
-                Profil
-              </Typography>
-            </View>
+            <Icon
+              name="person-outline"
+              color={focused ? 'text-accent' : 'text-disabled'}
+            />
           ),
         }}
       />

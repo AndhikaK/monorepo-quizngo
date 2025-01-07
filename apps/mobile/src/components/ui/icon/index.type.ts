@@ -8,6 +8,7 @@ export type IconProps = {
 
 type IconName =
   | 'person-outline'
+  | 'home-outline'
   | 'chevron-forward-outline'
   | 'chevron-down-circle'
   | 'chevron-back-outline'
