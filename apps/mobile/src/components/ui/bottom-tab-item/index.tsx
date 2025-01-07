@@ -1,8 +1,9 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { makeStyles } from '@/themes';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+
 import { RippleTouchable, View } from '@/components/ui';
+import { makeStyles } from '@/themes';
 
 export function BottomTabItem({
   state,

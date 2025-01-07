@@ -1,6 +1,7 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getHeaderTitle } from '@react-navigation/elements';
+
 import { BottomTabHeaderProps } from '@react-navigation/bottom-tabs';
+import { getHeaderTitle } from '@react-navigation/elements';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
 import { makeStyles } from '@/themes';

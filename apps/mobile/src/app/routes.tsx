@@ -1,15 +1,16 @@
 import { Suspense } from 'react';
 import { View } from 'react-native';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   DefaultTheme,
   NavigationContainer,
   Theme,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { DashboardScreen } from '@/app/routes/home';
 import { AccountScreen } from '@/app/routes/account';
+import { DashboardScreen } from '@/app/routes/home';
 import { DisplaySettingsScreen } from '@/app/routes/preferences/display-settings';
 import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';

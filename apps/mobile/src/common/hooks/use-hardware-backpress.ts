@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { BackHandler } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
 
 export const useHardwareBackPress = (onBack?: () => void) => {

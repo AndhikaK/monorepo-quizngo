@@ -1,9 +1,10 @@
 import { PropsWithChildren } from 'react';
+
 import {
-  useFonts,
   Inter_400Regular,
-  Inter_700Bold,
   Inter_500Medium,
+  Inter_700Bold,
+  useFonts,
 } from '@expo-google-fonts/inter';
 
 import { ThemeProvider } from '@/themes/theme.provider';

@@ -6,8 +6,8 @@ import {
   useState,
 } from 'react';
 
-import { Colors, Spacing } from './tokens';
 import { ColorSchemeName, ThemeProviderType } from './theme.type';
+import { Colors, Spacing } from './tokens';
 
 export const ThemeContext = createContext<ThemeProviderType>(
   {} as ThemeProviderType

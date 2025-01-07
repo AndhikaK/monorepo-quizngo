@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef,useState } from 'react';
 import {
-  View,
   Animated,
   Easing,
+  GestureResponderEvent,
+  I18nManager,
+  LayoutChangeEvent,
   Platform,
   TouchableWithoutFeedback,
-  I18nManager,
-  GestureResponderEvent,
-  LayoutChangeEvent,
+  View,
 } from 'react-native';
-import { styles, radius } from './styles';
+
 import { useTheme } from '@/themes';
+
+import { radius,styles } from './styles';
 
 type RippleTouchableProps = {
   rippleColor?: string;

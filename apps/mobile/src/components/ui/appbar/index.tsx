@@ -1,9 +1,11 @@
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import { makeStyles } from '@/themes';
+
+import { Icon } from '../icon';
+import { RippleTouchable } from '../ripple-touchable';
 import { Typography } from '../typography';
 import { View } from '../view';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { RippleTouchable } from '../ripple-touchable';
-import { Icon } from '../icon';
 
 type AppbarProps = {
   title?: string;
