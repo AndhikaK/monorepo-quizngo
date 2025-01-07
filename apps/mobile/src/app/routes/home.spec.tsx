@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { AppProvider } from '../provider';
-
 import { DashboardScreen } from './home';
+import { ThemeProvider } from '@/themes';
 
 test('renders correctly', () => {
   render(<DashboardScreen />, {
-    wrapper: AppProvider,
+    wrapper: ThemeProvider,
   });
 
   const text = screen.getByText('This is dashboard screen');
