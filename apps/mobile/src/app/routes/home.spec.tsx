@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { DashboardScreen } from './home';
 import { ThemeProvider } from '@/themes';
+
+import { DashboardScreen } from './home';
 
 test('renders correctly', () => {
   render(<DashboardScreen />, {
