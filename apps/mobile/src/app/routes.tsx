@@ -1,36 +1,40 @@
 import { Suspense } from 'react';
 import { View } from 'react-native';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   DefaultTheme,
   NavigationContainer,
   Theme,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { AccountScreen } from '@/app/routes/account';
+import { DisplaySettingsScreen } from '@/app/routes/account/preferences/display-settings';
 import { DashboardScreen } from '@/app/routes/home';
-import { ProfileScreen } from '@/app/routes/profile';
-import { BottomTabItem, Typography } from '@/components/ui';
+import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+import { BottomTabParamList, RootStackParamList } from './routes.type';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabRouter = () => {
   return (
     <Tab.Navigator
-      initialRouteName="ProfileScreen"
+      initialRouteName="dashboard/home"
       screenOptions={{
         headerShown: false,
         headerShadowVisible: false,
+        header: (props) => <Header {...props} />,
       }}
       tabBar={(props) => <BottomTabItem {...props} />}
     >
       <Tab.Screen
-        name="HomeScreen"
+        name="dashboard/home"
         component={DashboardScreen}
         options={{
-          headerShown: true,
           tabBarIcon: ({ focused }) => (
             <View>
               <Typography color={focused ? 'text-accent' : 'text-disabled'}>
@@ -41,9 +45,11 @@ const BottomTabRouter = () => {
         }}
       />
       <Tab.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
+        name="dashboard/account"
+        component={AccountScreen}
         options={{
+          headerShown: true,
+          headerTitle: 'Account & Settings',
           tabBarIcon: ({ focused }) => (
             <View>
               <Typography color={focused ? 'text-accent' : 'text-disabled'}>
@@ -76,21 +82,32 @@ export function AppRouter() {
   return (
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
-        initialRouteName="DashboardScreen"
+        initialRouteName="dashboard"
         screenLayout={({ children }) => (
           <Suspense fallback={<Typography>Loading...</Typography>}>
             {children}
           </Suspense>
         )}
         screenOptions={{
+          animation: 'slide_from_right',
           headerShown: false,
           headerShadowVisible: false,
           statusBarBackgroundColor: 'transparent',
           statusBarTranslucent: true,
           statusBarStyle: colorScheme === 'dark' ? 'light' : 'dark',
+          header: (props) => <Header {...props} />,
         }}
       >
-        <Stack.Screen name="DashboardScreen" component={BottomTabRouter} />
+        <Stack.Screen name="dashboard" component={BottomTabRouter} />
+
+        <Stack.Group>
+          <Stack.Group>
+            <Stack.Screen
+              name="account/preferences/display-settings"
+              component={DisplaySettingsScreen}
+            />
+          </Stack.Group>
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );

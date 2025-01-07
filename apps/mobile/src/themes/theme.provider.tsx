@@ -1,7 +1,13 @@
-import { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 
-import { Colors } from './tokens';
 import { ColorSchemeName, ThemeProviderType } from './theme.type';
+import { Colors, Spacing } from './tokens';
 
 export const ThemeContext = createContext<ThemeProviderType>(
   {} as ThemeProviderType
@@ -21,6 +27,7 @@ export function ThemeProvider(props: PropsWithChildren) {
   const themeContextValue: ThemeProviderType = useMemo(() => {
     return {
       Colors: Colors[currenctColorScheme],
+      Spacing,
       colorScheme: currenctColorScheme,
 
       changeTheme,
@@ -36,4 +43,4 @@ export function ThemeProvider(props: PropsWithChildren) {
 
 export const useTheme = () => {
   return useContext(ThemeContext);
-}
+};
