@@ -10,8 +10,8 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { AccountScreen } from '@/app/routes/account';
+import { DisplaySettingsScreen } from '@/app/routes/account/preferences/display-settings';
 import { DashboardScreen } from '@/app/routes/home';
-import { DisplaySettingsScreen } from '@/app/routes/preferences/display-settings';
 import { BottomTabItem, Header, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 

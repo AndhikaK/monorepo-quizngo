@@ -1,13 +1,13 @@
 import { ScrollView } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-
 import { ActionList, ActionListProps, Icon } from '@/components/ui';
 import { makeStyles } from '@/themes';
 
-export function AccountScreen() {
+import { NavigationScreenProps } from '../routes.type';
+
+type ScreenProps = NavigationScreenProps<'dashboard'>;
+export function AccountScreen({ navigation }: ScreenProps) {
   const styles = useStyles();
-  const navigation = useNavigation();
 
   const preferencesActionList: ActionListProps['actions'] = [
     {
