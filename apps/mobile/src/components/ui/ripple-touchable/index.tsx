@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef,useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Easing,
@@ -12,9 +12,9 @@ import {
 
 import { useTheme } from '@/themes';
 
-import { radius,styles } from './styles';
+import { radius, styles } from './styles';
 
-type RippleTouchableProps = {
+export type RippleTouchableProps = {
   rippleColor?: string;
   rippleOpacity?: number;
   rippleDuration?: number;

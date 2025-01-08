@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { makeStyles } from '@/themes';
 
 import { Icon } from '../icon';
-import { RippleTouchable } from '../ripple-touchable';
+import { RippleTouchable, RippleTouchableProps } from '../ripple-touchable';
 import { Typography } from '../typography';
 import { View } from '../view';
 
@@ -13,10 +13,11 @@ export type ActionListProps = {
 };
 type ActionItemProps = {
   leadingIcon: ReactNode;
+  trailingIcon?: ReactNode;
   title: string;
   onPress: () => void;
   isLastItem?: boolean;
-};
+} & RippleTouchableProps;
 export function ActionList(props: ActionListProps) {
   const { title, actions } = props;
   const styles = useStyles();
@@ -47,22 +48,25 @@ export function ActionList(props: ActionListProps) {
 function ActionItem(props: ActionItemProps) {
   const {
     leadingIcon = <Icon name="chevron-down-circle" />,
+    trailingIcon = <Icon name="chevron-forward-outline" />,
     title,
     isLastItem,
-    onPress
+    onPress,
+    ...rest
   } = props;
   const styles = useStyles();
 
   return (
     <RippleTouchable
-    onPress={onPress}
+      onPress={onPress}
       style={[styles.actionItemContainer, !isLastItem && styles.borderBottom]}
+      {...rest}
     >
       <View style={styles.actionItemTitleWrapper}>
         {leadingIcon}
         <Typography>{title}</Typography>
       </View>
-      <Icon name="chevron-forward-outline" />
+      {trailingIcon}
     </RippleTouchable>
   );
 }
