@@ -8,6 +8,7 @@ export type TypographyProps = TextProps & {
   fontWeight?: 'normal' | 'semibold' | 'bold';
   fontStyle?: TextStyle['fontStyle'];
   color?: Extract<ColorTokenKey, `text-${string}`>;
+  textAlign?: TextStyle['textAlign'];
 };
 
 export function Typography(props: TypographyProps) {
@@ -28,6 +29,7 @@ const useStyles = makeStyles(
       color = 'text-primary',
       fontWeight = 'normal',
       fontStyle = 'normal',
+      textAlign = 'left',
     } = props;
     const { Colors } = themes;
 
@@ -43,6 +45,7 @@ const useStyles = makeStyles(
         color: Colors[color] ?? Colors['text-primary'],
         fontFamily: getFontFamily(),
         fontStyle,
+        textAlign,
       },
       heading: {
         fontSize: 22,

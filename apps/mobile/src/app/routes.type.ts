@@ -1,3 +1,5 @@
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
@@ -10,5 +12,11 @@ export type BottomTabParamList = {
   'dashboard/account': undefined;
 };
 
-export type NavigationScreenProps<RouteName extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, RouteName>;
+export type NavigationScreenProps = NativeStackScreenProps<RootStackParamList>;
+
+export type BottomNavigationScreenProps<
+  Route extends keyof BottomTabParamList
+> = CompositeScreenProps<
+  BottomTabScreenProps<BottomTabParamList, Route>,
+  NativeStackScreenProps<RootStackParamList>
+>;

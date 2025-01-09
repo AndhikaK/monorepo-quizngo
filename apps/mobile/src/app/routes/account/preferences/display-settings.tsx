@@ -3,8 +3,7 @@ import { useHardwareBackPress } from '@/common/hooks';
 import { ActionList, Appbar, Icon, View } from '@/components/ui';
 import { makeStyles, useTheme } from '@/themes';
 
-type ScreenProps =
-  NavigationScreenProps<'account/preferences/display-settings'>;
+type ScreenProps = NavigationScreenProps;
 export function DisplaySettingsScreen(props: ScreenProps) {
   const styles = useStyles();
   const { goBackAction } = useHardwareBackPress();

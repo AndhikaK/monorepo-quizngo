@@ -14,7 +14,7 @@ export type ActionListProps = {
 type ActionItemProps = {
   leadingIcon: ReactNode;
   trailingIcon?: ReactNode;
-  title: string;
+  title?: string;
   onPress: () => void;
   isLastItem?: boolean;
 } & RippleTouchableProps;

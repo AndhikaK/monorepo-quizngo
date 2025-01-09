@@ -12,13 +12,16 @@ export type ColorTokenKey =
   | 'text-primary'
   | 'text-secondary'
   | 'text-disabled'
+  | 'text-inverse'
   | 'text-accent'
   | 'border-primary'
+  | 'border-black'
   | 'bg-primary'
   | 'bg-secondary'
-  | 'bg-inverse';
+  | 'bg-inverse'
+  | 'fill-primary';
 
-export type ThemeTokenKey = 'sm' | 'md' | 'lg' | 'xl';
+export type ThemeTokenKey = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 export type ColorToken = Record<ColorTokenKey, string>;
 

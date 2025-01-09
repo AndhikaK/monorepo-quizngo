@@ -1,11 +1,18 @@
 import { ScrollView } from 'react-native';
 
-import { ActionList, ActionListProps, Icon } from '@/components/ui';
+import {
+  ActionList,
+  ActionListProps,
+  Button,
+  Icon,
+  Typography,
+  View,
+} from '@/components/ui';
 import { makeStyles } from '@/themes';
 
-import { NavigationScreenProps } from '../routes.type';
+import { BottomNavigationScreenProps } from '../../routes.type';
 
-type ScreenProps = NavigationScreenProps<'dashboard'>;
+type ScreenProps = BottomNavigationScreenProps<'dashboard/account'>;
 export function AccountScreen({ navigation }: ScreenProps) {
   const styles = useStyles();
 
@@ -26,6 +33,18 @@ export function AccountScreen({ navigation }: ScreenProps) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.signupWrapper}>
+        <View>
+          <Typography variant="body1" textAlign="center" fontWeight="semibold">
+            Get access to Proficiency Test
+          </Typography>
+          <Typography textAlign="center">
+            Create an account to access feature
+          </Typography>
+        </View>
+        <Button title="CREATE AN ACCOUNT" />
+      </View>
+
       <ActionList title="Preferences" actions={preferencesActionList} />
     </ScrollView>
   );
@@ -38,6 +57,11 @@ const useStyles = makeStyles((themes) => {
     container: {
       flex: 1,
       padding: Spacing.lg,
+      paddingTop: Spacing['2xl'],
+      gap: Spacing.xl,
+    },
+    signupWrapper: {
+      gap: Spacing.xl,
     },
   };
 });
