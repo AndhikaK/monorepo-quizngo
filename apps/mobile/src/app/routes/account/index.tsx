@@ -1,4 +1,5 @@
 import { ScrollView } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import {
   ActionList,
@@ -15,6 +16,8 @@ import { BottomNavigationScreenProps } from '../../routes.type';
 type ScreenProps = BottomNavigationScreenProps<'dashboard/account'>;
 export function AccountScreen({ navigation }: ScreenProps) {
   const styles = useStyles();
+
+  const { t } = useTranslation(['account']);
 
   const preferencesActionList: ActionListProps['actions'] = [
     {
@@ -36,10 +39,10 @@ export function AccountScreen({ navigation }: ScreenProps) {
       <View style={styles.signupWrapper}>
         <View>
           <Typography variant="body1" textAlign="center" fontWeight="semibold">
-            Get access to Proficiency Test
+            {t('account:index.nonlogin_title')}
           </Typography>
           <Typography textAlign="center">
-            Create an account to access feature
+            {t('account:index.nonlogin_subtitle')}
           </Typography>
         </View>
         <Button title="CREATE AN ACCOUNT" />

@@ -38,10 +38,14 @@
     "@react-navigation/elements": "*",
     "expo-font": "*",
     "@expo-google-fonts/inter": "*",
-    "@expo/vector-icons": "*"
+    "@expo/vector-icons": "*",
+    "i18next": "*",
+    "react-i18next": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "i18next-resources-for-ts": "*"
+  }
 }
