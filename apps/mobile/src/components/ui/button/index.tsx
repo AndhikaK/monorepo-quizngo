@@ -26,11 +26,11 @@ export function Button(props: ButtonProps) {
 const useStyles = makeStyles(({ Colors }) => {
   return {
     container: {
-      height: 62,
+      height: 56,
       width: '100%',
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 16,
+      borderRadius: 12,
       overflow: 'hidden',
       backgroundColor: Colors['fill-primary'],
       borderWidth: 2,
