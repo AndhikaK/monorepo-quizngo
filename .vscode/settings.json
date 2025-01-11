@@ -28,5 +28,5 @@
         "typescript",
         "typescriptreact"
     ],
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
 }

@@ -5,6 +5,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   dashboard: BottomTabParamList;
   'account/preferences/display-settings': undefined;
+  'account/preferences/language': undefined;
 };
 
 export type BottomTabParamList = {

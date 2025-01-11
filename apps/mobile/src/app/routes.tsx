@@ -15,6 +15,7 @@ import { DashboardScreen } from '@/app/routes/home';
 import { BottomTabItem, Header, Icon, Typography } from '@/components/ui';
 import { useTheme } from '@/themes';
 
+import { LanguageSettingScreen } from './routes/account/preferences/language';
 import { BottomTabParamList, RootStackParamList } from './routes.type';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -101,6 +102,10 @@ export function AppRouter() {
 
         <Stack.Group>
           <Stack.Group>
+            <Stack.Screen
+              name="account/preferences/language"
+              component={LanguageSettingScreen}
+            />
             <Stack.Screen
               name="account/preferences/display-settings"
               component={DisplaySettingsScreen}

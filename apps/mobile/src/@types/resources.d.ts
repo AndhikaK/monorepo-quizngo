@@ -18,6 +18,13 @@ interface Resources {
         "theme_dark": "Dark mode",
         "theme_light": "Light mode"
       }
+    },
+    "language": {
+      "screen_header": "Language",
+      "action_menu": {
+        "select_language": "Select language",
+        "english": "English"
+      }
     }
   },
   "common": {

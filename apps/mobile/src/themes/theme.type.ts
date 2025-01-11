@@ -19,7 +19,8 @@ export type ColorTokenKey =
   | 'bg-primary'
   | 'bg-secondary'
   | 'bg-inverse'
-  | 'fill-primary';
+  | 'fill-primary'
+  | 'fill-secondary';
 
 export type ThemeTokenKey = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 

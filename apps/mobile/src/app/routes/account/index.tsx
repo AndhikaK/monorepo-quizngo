@@ -23,8 +23,7 @@ export function AccountScreen({ navigation }: ScreenProps) {
     {
       title: t('account:index.section_menu.language'),
       leadingIcon: <Icon name="language-outline" />,
-      onPress: () =>
-        navigation.navigate('account/preferences/display-settings'),
+      onPress: () => navigation.navigate('account/preferences/language'),
     },
     {
       title: t('account:index.section_menu.display_settings'),

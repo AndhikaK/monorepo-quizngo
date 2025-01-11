@@ -15,6 +15,7 @@ export const light: ColorToken = {
   'bg-inverse': '#000000',
 
   'fill-primary': '#3E3E3E',
+  'fill-secondary': '#CCCCCC',
 };
 
 export const dark: ColorToken = {
@@ -32,6 +33,7 @@ export const dark: ColorToken = {
   'bg-inverse': '#FFFFFF',
 
   'fill-primary': '#C9C9C9',
+  'fill-secondary': '#CCCCCC',
 };
 
 export const Colors = {
