@@ -21,13 +21,13 @@ export function AccountScreen({ navigation }: ScreenProps) {
 
   const preferencesActionList: ActionListProps['actions'] = [
     {
-      title: 'Language',
+      title: t('account:index.section_menu.language'),
       leadingIcon: <Icon name="language-outline" />,
       onPress: () =>
         navigation.navigate('account/preferences/display-settings'),
     },
     {
-      title: 'Display settings',
+      title: t('account:index.section_menu.display_settings'),
       leadingIcon: <Icon name="moon-outline" />,
       onPress: () =>
         navigation.navigate('account/preferences/display-settings'),
@@ -45,7 +45,7 @@ export function AccountScreen({ navigation }: ScreenProps) {
             {t('account:index.nonlogin_subtitle')}
           </Typography>
         </View>
-        <Button title="CREATE AN ACCOUNT" />
+        <Button title={t('account:index.btn_create_account')} />
       </View>
 
       <ActionList title="Preferences" actions={preferencesActionList} />

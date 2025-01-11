@@ -21,8 +21,7 @@
   },
   "files": [],
   "include": [
-    "src/**/*",
-    "src/locales/**/*.json"
+    "src/**/*"
   ],
   "references": [
     {

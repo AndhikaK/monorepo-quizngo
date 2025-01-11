@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { NavigationScreenProps } from '@/app/routes.type';
 import { useHardwareBackPress } from '@/common/hooks';
 import { ActionList, Appbar, Icon, View } from '@/components/ui';
@@ -8,6 +10,7 @@ export function DisplaySettingsScreen(props: ScreenProps) {
   const styles = useStyles();
   const { goBackAction } = useHardwareBackPress();
   const { colorScheme, changeTheme } = useTheme();
+  const { t } = useTranslation(['account']);
 
   const isDark = colorScheme === 'dark';
 
@@ -17,18 +20,23 @@ export function DisplaySettingsScreen(props: ScreenProps) {
 
   return (
     <View style={styles.container}>
-      <Appbar title="Display Settings" onBackIconPress={goBackAction} />
+      <Appbar
+        title={t('account:display_settings.screen_header')}
+        onBackIconPress={goBackAction}
+      />
 
       <View style={styles.contentContainer}>
         <ActionList
-          title="Theme"
+          title={t('account:display_settings.action_menu.theme_title')}
           actions={[
             {
               leadingIcon: (
                 <Icon name={isDark ? 'moon-outline' : 'moon-outline'} />
               ),
               trailingIcon: null,
-              title: isDark ? 'Dark mode' : 'Light mode',
+              title: isDark
+                ? t('account:display_settings.action_menu.theme_dark')
+                : t('account:display_settings.action_menu.theme_light'),
               onPress: switchTheme,
             },
           ]}

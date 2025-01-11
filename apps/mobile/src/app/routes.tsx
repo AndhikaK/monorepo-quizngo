@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
@@ -20,6 +21,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabRouter = () => {
+  const { t } = useTranslation(['account']);
   return (
     <Tab.Navigator
       initialRouteName="dashboard/home"
@@ -47,7 +49,7 @@ const BottomTabRouter = () => {
         component={AccountScreen}
         options={{
           headerShown: true,
-          headerTitle: 'Account & Settings',
+          headerTitle: t('account:index.screen_header'),
           tabBarIcon: ({ focused }) => (
             <Icon
               name="person-outline"
