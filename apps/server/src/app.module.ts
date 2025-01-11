@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
+import { AuthModule } from '@/authentication/auth.module';
 import { envSchema } from '@/config/env/env';
 import { EnvModule } from '@/config/env/env.module';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -14,8 +12,7 @@ import { AppService } from './app.service';
       validate: (env) => envSchema.parse(env),
     }),
     EnvModule,
+    AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
