@@ -7,7 +7,6 @@ import common from './en/common.json';
 export const defaultNS = 'common';
 
 i18n.use(initReactI18next).init({
-  debug: true,
   resources: {
     en: {
       common,
