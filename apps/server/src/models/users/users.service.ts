@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class UserService {
+export class UsersService {
   getUserById(id: string) {
     if (id !== 'random_id') return null;
 
