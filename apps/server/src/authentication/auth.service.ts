@@ -7,4 +7,10 @@ export class AuthService {
       data: 'hehe',
     };
   }
+
+  async validateUser(username: string, password: string) {
+    return {
+      name: 'test_user',
+    };
+  }
 }
