@@ -23,7 +23,7 @@ import { AuthService } from './auth.service';
         return {
           secret: envService.get('JWT_SECRET'),
           signOptions: {
-            expiresIn: '60s',
+            expiresIn: envService.get('JWT_EXPIRES_IN'),
           },
         };
       },
