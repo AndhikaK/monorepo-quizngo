@@ -42,7 +42,13 @@
     "migration-create": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cross-var ts-node node_modules/typeorm/cli.js migration:create ./apps/server/src/database/migrations/{args.name}"
+        "command": "typeorm migration:create ./apps/server/src/database/migrations/{args.name} --outputJs"
+      }
+    },
+    "migration-run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./apps/server/src/database/data-source.js"
       }
     }
   }
