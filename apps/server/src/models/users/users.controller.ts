@@ -14,10 +14,5 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   currentUser() {
     return this.usersService.findAll();
-    // return {
-    //   data: {
-    //     name: 'test_user',
-    //   },
-    // };
   }
 }

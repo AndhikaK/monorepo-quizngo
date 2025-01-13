@@ -1,4 +1,4 @@
-// src/entities/user.entity.ts
+import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -9,17 +9,18 @@ import {
 
 @Entity('users') // Table name
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column({ unique: true })
-  username: string;
+  @Column()
+  name: string;
 
   @Column({ unique: true })
   email: string;
 
-  @Column({ name: 'password_hash' })
-  passwordHash: string;
+  @Column()
+  @Exclude()
+  password: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

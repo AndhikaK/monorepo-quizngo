@@ -50,6 +50,12 @@
       "options": {
         "command": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./apps/server/src/database/data-source.js"
       }
+    },
+    "migration-revert": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./apps/server/src/database/data-source.js"
+      }
     }
   }
 }
