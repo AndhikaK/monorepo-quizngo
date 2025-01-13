@@ -12,16 +12,17 @@ export class UsersService {
     private userRepository: Repository<User>
   ) {}
 
-  getUserById(id: string) {
-    if (id !== 'random_id') return null;
-
-    return {
-      id: 'random_id',
-      name: 'user 1',
-    };
+  async getUserById(id: string) {
+    return this.userRepository.findOneBy({ id });
   }
 
   async findAll() {
     return this.userRepository.find();
+  }
+
+  async findUserByEmail(email: string) {
+    return this.userRepository.findOneBy({
+      email,
+    });
   }
 }

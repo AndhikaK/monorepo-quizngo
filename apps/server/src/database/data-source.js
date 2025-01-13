@@ -1,4 +1,3 @@
-const path = require('path');
 const { DataSource } = require('typeorm');
 
 console.log(process.env);

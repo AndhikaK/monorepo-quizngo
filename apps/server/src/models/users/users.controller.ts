@@ -1,6 +1,7 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 
 import { JwtAuthGuard } from '@/authentication/guards/jwt-auth.guard';
+import { AuthenticatedRequest } from '@/authentication/interfaces/authenticated-request.interface';
 
 import { UsersService } from './users.service';
 
@@ -12,7 +13,7 @@ export class UsersController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  currentUser() {
-    return this.usersService.findAll();
+  currentUser(@Request() req: AuthenticatedRequest) {
+    return req.user;
   }
 }

@@ -3,7 +3,11 @@
  * This is only a minimal backend to get started.
  */
 
-import { ClassSerializerInterceptor, Logger } from '@nestjs/common';
+import {
+  ClassSerializerInterceptor,
+  Logger,
+  ValidationPipe,
+} from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 
 import { EnvService } from '@/config/env/env.service';
@@ -20,6 +24,9 @@ async function bootstrap() {
 
   // global interceptors
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+
+  // global pipes
+  app.useGlobalPipes(new ValidationPipe());
 
   const port = configService.get('PORT');
   await app.listen(port);
