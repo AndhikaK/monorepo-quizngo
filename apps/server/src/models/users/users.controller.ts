@@ -11,20 +11,9 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Get()
+  @Get('me')
   @UseGuards(JwtAuthGuard)
   currentUser(@Request() req: AuthenticatedRequest) {
-    return req.user;
-  }
-}
-
-@Controller({
-  path: 'profile',
-})
-export class ProfileController {
-  @Get()
-  @UseGuards(JwtAuthGuard)
-  profile(@Request() req: AuthenticatedRequest) {
     return req.user;
   }
 }
