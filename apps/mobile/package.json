@@ -9,9 +9,43 @@
     "react-native": "*",
     "expo": "*",
     "react-native-svg": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "@nx/eslint-plugin": "*",
+    "jest-expo": "*",
+    "@nx/devkit": "*",
+    "@nx/eslint": "*",
+    "@nx/jest": "*",
+    "@nx/js": "*",
+    "@nx/react": "*",
+    "@nx/web": "*",
+    "@nx/webpack": "*",
+    "enhanced-resolve": "*",
+    "metro-resolver": "*",
+    "node-fetch": "*",
+    "picocolors": "*",
+    "tsconfig-paths": "*",
+    "tslib": "*",
+    "@expo/metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "react": "*",
+    "expo-dev-client": "*",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-gesture-handler": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/elements": "*",
+    "expo-font": "*",
+    "@expo-google-fonts/inter": "*",
+    "@expo/vector-icons": "*",
+    "i18next": "*",
+    "react-i18next": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
+  },
+  "devDependencies": {
+    "i18next-resources-for-ts": "*"
   }
 }

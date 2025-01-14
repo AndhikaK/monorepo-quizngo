@@ -5,5 +5,12 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project mobile --web",
-  "targets": {}
+  "targets": {
+    "interface": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "i18next-resources-for-ts interface -i apps/mobile/src/locales/en -o apps/mobile/src/@types/resources.d.ts"
+      }
+    }
+  }
 }
