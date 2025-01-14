@@ -22,6 +22,9 @@ export class User {
   @Exclude()
   password: string;
 
+  @Column({ nullable: true })
+  display_picture_url: string;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
