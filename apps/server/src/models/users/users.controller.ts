@@ -17,3 +17,14 @@ export class UsersController {
     return req.user;
   }
 }
+
+@Controller({
+  path: 'profile',
+})
+export class ProfileController {
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  profile(@Request() req: AuthenticatedRequest) {
+    return req.user;
+  }
+}

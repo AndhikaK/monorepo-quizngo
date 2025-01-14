@@ -1,3 +1,5 @@
+import * as bcrypt from 'bcrypt';
+
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
@@ -19,7 +21,8 @@ export class AuthService {
 
     if (!user) throw new HttpException('BAD_REQUEST', HttpStatus.BAD_REQUEST);
 
-    if (user.password !== password) {
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
       throw new HttpException('BAD_REQUEST', HttpStatus.BAD_REQUEST);
     }
 
@@ -46,10 +49,13 @@ export class AuthService {
     if (validateExistingUser)
       throw new HttpException('BAD_REQUEST', HttpStatus.BAD_REQUEST);
 
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(payload.password, salt);
+
     await this.userService.createUser({
       name: payload.name,
-      password: payload.password,
       email: payload.email,
+      password: hashedPassword,
     });
   }
 }

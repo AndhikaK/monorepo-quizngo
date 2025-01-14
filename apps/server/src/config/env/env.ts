@@ -10,5 +10,7 @@ export const envSchema = z.object({
   DB_PORT: z.coerce.number(),
   DB_NAME: z.string(),
   DB_PASSWORD: z.string(),
+
+  HASH_SALT_ROUNDS: z.coerce.number().optional().default(10),
 });
 export type Env = z.infer<typeof envSchema>;
