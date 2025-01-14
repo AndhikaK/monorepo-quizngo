@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { User } from './entities/users.entity';
+import { ICreateUser } from './interfaces/create-user.interface';
 
 @Injectable()
 export class UsersService {
@@ -24,5 +25,9 @@ export class UsersService {
     return this.userRepository.findOneBy({
       email,
     });
+  }
+
+  async createUser(data: ICreateUser) {
+    return await this.userRepository.insert(data);
   }
 }

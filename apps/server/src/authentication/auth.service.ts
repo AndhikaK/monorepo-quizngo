@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { User } from '@/models/users/entities/users.entity';
 import { UsersService } from '@/models/users/users.service';
 
+import { RegisterDto } from './dto/register.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 
 @Injectable()
@@ -35,5 +36,20 @@ export class AuthService {
     return {
       access_token: jwtToken,
     };
+  }
+
+  async register(payload: RegisterDto) {
+    const validateExistingUser = await this.userService.findUserByEmail(
+      payload.email
+    );
+
+    if (validateExistingUser)
+      throw new HttpException('BAD_REQUEST', HttpStatus.BAD_REQUEST);
+
+    await this.userService.createUser({
+      name: payload.name,
+      password: payload.password,
+      email: payload.email,
+    });
   }
 }
