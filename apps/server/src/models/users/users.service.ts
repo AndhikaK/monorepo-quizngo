@@ -3,8 +3,9 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
+import { FilesService } from '@/models/files/files.service';
+
 import { User } from './entities/users.entity';
-import { FilesService } from './files/files.service';
 import { ICreateUser } from './interfaces/create-user.interface';
 
 @Injectable()
