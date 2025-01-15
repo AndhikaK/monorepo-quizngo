@@ -4,13 +4,15 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { User } from './entities/users.entity';
+import { FilesService } from './files/files.service';
 import { ICreateUser } from './interfaces/create-user.interface';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private userRepository: Repository<User>
+    private userRepository: Repository<User>,
+    private fileService: FilesService
   ) {}
 
   async getUserById(id: string) {
@@ -29,5 +31,19 @@ export class UsersService {
 
   async createUser(data: ICreateUser) {
     return await this.userRepository.insert(data);
+  }
+
+  async uploadDisplayPicture(user: User, fileBuffer: Buffer) {
+    const path = 'display-pictures';
+    const displayPictureUrl = await this.fileService.upload(
+      fileBuffer,
+      user.id,
+      path
+    );
+
+    await this.userRepository.update(
+      { display_picture_url: displayPictureUrl },
+      { id: user.id }
+    );
   }
 }
