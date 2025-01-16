@@ -7,6 +7,7 @@ import { FilesService } from '@/models/files/files.service';
 
 import { User } from './entities/users.entity';
 import { ICreateUser } from './interfaces/create-user.interface';
+import { IPathCurrentUser } from './interfaces/path-current-user.interface';
 
 @Injectable()
 export class UsersService {
@@ -34,17 +35,26 @@ export class UsersService {
     return await this.userRepository.insert(data);
   }
 
-  async uploadDisplayPicture(user: User, fileBuffer: Buffer) {
-    const path = 'display-pictures';
-    const displayPictureUrl = await this.fileService.upload(
-      fileBuffer,
-      user.id,
-      path
-    );
+  async patchCurrentUser(
+    user: User,
+    fileBuffer: Buffer,
+    updatePayload: IPathCurrentUser
+  ) {
+    const payloadUser = new User();
 
-    await this.userRepository.update(
-      { display_picture_url: displayPictureUrl },
-      { id: user.id }
-    );
+    if (updatePayload.name) {
+      payloadUser.name = updatePayload.name;
+    }
+
+    if (fileBuffer) {
+      const path = 'display-pictures';
+      payloadUser.display_picture_url = await this.fileService.upload(
+        fileBuffer,
+        user.id,
+        path
+      );
+    }
+
+    await this.userRepository.update({ id: user.id }, payloadUser);
   }
 }

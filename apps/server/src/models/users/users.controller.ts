@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Get,
   HttpStatus,
@@ -13,6 +14,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { JwtAuthGuard } from '@/authentication/guards/jwt-auth.guard';
 import { AuthenticatedRequest } from '@/authentication/interfaces/authenticated-request.interface';
 
+import { PathCurrentUserDto } from './dto/patch-current-user.dto';
 import { UsersService } from './users.service';
 
 @Controller({
@@ -32,13 +34,19 @@ export class UsersController {
   @UseInterceptors(FileInterceptor('file'))
   async patchCurrentUser(
     @Request() req: AuthenticatedRequest,
-    @UploadedFile() file: Express.Multer.File
+    @UploadedFile() file: Express.Multer.File,
+    @Body() body: PathCurrentUserDto
   ) {
     const displayPictureBuffer = file.buffer;
 
-    await this.usersService.uploadDisplayPicture(
+    const pathCurrentUserPayload = {
+      name: body.name,
+    };
+
+    await this.usersService.patchCurrentUser(
       req.user,
-      displayPictureBuffer
+      displayPictureBuffer,
+      pathCurrentUserPayload
     );
 
     return {
