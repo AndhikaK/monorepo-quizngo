@@ -58,3 +58,7 @@ cache/
 *.env
 .env
 /.env
+
+# Next.js
+.next
+out
