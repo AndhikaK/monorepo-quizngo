@@ -3,9 +3,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import { UserPreferences } from './user-preferences.entity';
 
 @Entity('users') // Table name
 export class User {
@@ -30,4 +34,9 @@ export class User {
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
+
+  @OneToOne(() => UserPreferences, (preferences) => preferences.user, {
+    cascade: true,
+  })
+  preferences: UserPreferences;
 }

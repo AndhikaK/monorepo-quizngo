@@ -25,8 +25,10 @@ export class UsersController {
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
-  currentUser(@Request() req: AuthenticatedRequest) {
-    return req.user;
+  async currentUser(@Request() req: AuthenticatedRequest) {
+    const user = this.usersService.findUserByEmail(req.user.email);
+
+    return user;
   }
 
   @Patch('me')

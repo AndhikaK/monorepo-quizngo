@@ -26,8 +26,9 @@ export class UsersService {
   }
 
   async findUserByEmail(email: string) {
-    return this.userRepository.findOneBy({
-      email,
+    return this.userRepository.findOne({
+      where: { email },
+      relations: ['preferences'],
     });
   }
 
