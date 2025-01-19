@@ -13,6 +13,7 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
 import { EnvService } from '@/config/env/env.service';
 
+import { ResponseInterceptor } from './common/response/global-response.interceptor';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -25,6 +26,7 @@ async function bootstrap() {
 
   // global interceptors
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+  app.useGlobalInterceptors(new ResponseInterceptor());
 
   // global pipes
   app.useGlobalPipes(new ValidationPipe());
