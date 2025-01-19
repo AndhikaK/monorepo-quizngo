@@ -6,8 +6,11 @@ import {
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { ThemeProvider } from '@/themes/theme.provider';
+
+const queryClient = new QueryClient();
 
 export function AppProvider(props: PropsWithChildren) {
   const { children } = props;
@@ -20,5 +23,9 @@ export function AppProvider(props: PropsWithChildren) {
 
   if (!fontsLoaded) return null;
 
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </ThemeProvider>
+  );
 }

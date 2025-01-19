@@ -9,6 +9,7 @@ import {
   Typography,
   View,
 } from '@/components/ui';
+import { useLoginMutation } from '@/features/authentication/query-hooks';
 import { makeStyles } from '@/themes';
 
 import { BottomNavigationScreenProps } from '../../routes.type';
@@ -33,6 +34,15 @@ export function AccountScreen({ navigation }: ScreenProps) {
     },
   ];
 
+  const loginMutation = useLoginMutation();
+
+  const onPress = () => {
+    loginMutation.mutate({
+      email: 'userregister2@gmail.com',
+      password: '123456',
+    });
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.signupWrapper}>
@@ -44,7 +54,10 @@ export function AccountScreen({ navigation }: ScreenProps) {
             {t('account:index.nonlogin_subtitle')}
           </Typography>
         </View>
-        <Button title={t('account:index.btn_create_account')} />
+        <Button
+          title={t('account:index.btn_create_account')}
+          onPress={onPress}
+        />
       </View>
 
       <ActionList title="Preferences" actions={preferencesActionList} />

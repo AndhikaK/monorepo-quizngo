@@ -1,13 +1,13 @@
 import { makeStyles, useTheme } from '@/themes';
 
-import { RippleTouchable } from '../ripple-touchable';
+import { RippleTouchable, RippleTouchableProps } from '../ripple-touchable';
 import { Typography } from '../typography';
 
 type ButtonProps = {
   title: string;
-};
+} & RippleTouchableProps;
 export function Button(props: ButtonProps) {
-  const { title } = props;
+  const { title, ...rest } = props;
 
   const { Colors } = useTheme();
   const styles = useStyles();
@@ -15,6 +15,7 @@ export function Button(props: ButtonProps) {
     <RippleTouchable
       rippleColor={Colors['bg-primary']}
       style={styles.container}
+      {...rest}
     >
       <Typography color="text-inverse" variant="body1" fontWeight="semibold">
         {title}

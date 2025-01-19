@@ -40,7 +40,11 @@
     "@expo-google-fonts/inter": "*",
     "@expo/vector-icons": "*",
     "i18next": "*",
-    "react-i18next": "*"
+    "react-i18next": "*",
+    "zod": "*",
+    "@tanstack/react-query": "*",
+    "zustand": "*",
+    "axios": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/mobile"
