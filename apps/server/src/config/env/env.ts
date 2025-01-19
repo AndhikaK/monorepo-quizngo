@@ -13,8 +13,6 @@ export const envSchema = z.object({
   DB_NAME: z.string(),
   DB_PASSWORD: z.string(),
 
-  HASH_SALT_ROUNDS: z.coerce.number().optional().default(10),
-
   CLOUDINARY_CLOUD_NAME: z.string(),
   CLOUDINARY_API_KEY: z.string(),
   CLOUDINARY_API_SECRET: z.string(),
