@@ -1,7 +1,9 @@
 import { Strategy } from 'passport-local';
 
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
+
+import { ErrorHttpException } from '@/common/exception/error-http.exception';
 
 import { AuthService } from '../auth.service';
 
@@ -18,7 +20,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     );
 
     if (!validationResult)
-      throw new HttpException('BAD_REQUEST', HttpStatus.BAD_REQUEST);
+      throw new ErrorHttpException('401001', HttpStatus.BAD_REQUEST);
 
     return validationResult;
   }
