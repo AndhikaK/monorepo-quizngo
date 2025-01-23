@@ -7,6 +7,7 @@ import { AuthModule } from '@/authentication/auth.module';
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
 import { envSchema } from '@/config/env/env';
 import { EnvModule } from '@/config/env/env.module';
+import { QuestionsModule } from '@/models/questions/questions.module';
 import { UsersModule } from '@/models/users/users.module';
 import { TypeOrmDatabaseProvider } from '@/providers/database/postgres/provider.module';
 
@@ -23,6 +24,7 @@ import { TypeOrmDatabaseProvider } from '@/providers/database/postgres/provider.
     EnvModule,
     AuthModule,
     UsersModule,
+    QuestionsModule,
   ],
   providers: [{ provide: APP_FILTER, useClass: HttpExceptionFilter }],
 })
