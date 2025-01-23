@@ -3,17 +3,14 @@
  * This is only a minimal backend to get started.
  */
 
-import {
-  ClassSerializerInterceptor,
-  Logger,
-  ValidationPipe,
-} from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
+import { AppLogger } from '@/common/logger/app.logger';
+import { ResponseInterceptor } from '@/common/response/global-response.interceptor';
 import { EnvService } from '@/config/env/env.service';
 
-import { ResponseInterceptor } from './common/response/global-response.interceptor';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -36,7 +33,9 @@ async function bootstrap() {
 
   const port = configService.get('PORT');
   await app.listen(port);
-  Logger.log(
+
+  const logger = new AppLogger();
+  logger.info(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
   );
 }

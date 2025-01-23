@@ -13,6 +13,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 
 import { JwtAuthGuard } from '@/authentication/guards/jwt-auth.guard';
 import { AuthenticatedRequest } from '@/authentication/interfaces/authenticated-request.interface';
+import { AppLogger } from '@/common/logger/app.logger';
 
 import { PathCurrentUserDto } from './dto/patch-current-user.dto';
 import { UsersService } from './users.service';
@@ -21,12 +22,15 @@ import { UsersService } from './users.service';
   path: 'users',
 })
 export class UsersController {
+  private readonly logger = new AppLogger();
   constructor(private usersService: UsersService) {}
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
   async currentUser(@Request() req: AuthenticatedRequest) {
     const user = this.usersService.findUserByEmail(req.user.email);
+
+    this.logger.info('getting current user');
 
     return user;
   }
@@ -50,6 +54,8 @@ export class UsersController {
       displayPictureBuffer,
       pathCurrentUserPayload
     );
+
+    this.logger.debug('getting current user');
 
     return {
       status: HttpStatus.OK,
