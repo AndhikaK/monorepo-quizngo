@@ -14,7 +14,7 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "67714f0a4f3bc57e4e92f160",
+  "nxCloudId": "6794806e5c3848d4328a247a",
   "plugins": [
     {
       "plugin": "@nx/expo/plugin",
@@ -30,17 +30,10 @@
         "runAndroidTargetName": "run-android"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      },
+      "options": { "targetName": "test" },
       "exclude": ["apps/server-e2e/**/*"]
     },
     {
@@ -62,11 +55,6 @@
     }
   ],
   "generators": {
-    "@nx/next": {
-      "application": {
-        "style": "tailwind",
-        "linter": "eslint"
-      }
-    }
+    "@nx/next": { "application": { "style": "tailwind", "linter": "eslint" } }
   }
 }
