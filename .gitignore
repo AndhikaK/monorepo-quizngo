@@ -55,10 +55,3 @@ npm-debug.*
 *.orig.*
 web-build/
 cache/
-*.env
-.env
-/.env
-
-# Next.js
-.next
-out
