@@ -14,28 +14,20 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "67a713914fca7431de03efda",
+  "nxCloudId": "67a71bfef6ef02029a976ed1",
   "plugins": [
     {
-      "plugin": "@nx/js/typescript",
+      "plugin": "@nx/expo/plugin",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
-        }
-      }
-    },
-    {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
+        "startTargetName": "start",
         "buildTargetName": "build",
+        "prebuildTargetName": "prebuild",
         "serveTargetName": "serve",
-        "previewTargetName": "preview",
+        "installTargetName": "install",
+        "exportTargetName": "export",
+        "submitTargetName": "submit",
+        "runIosTargetName": "run-ios",
+        "runAndroidTargetName": "run-android",
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
@@ -50,13 +42,18 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      },
-      "exclude": ["apps/server-e2e/**/*"]
+      }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
     }
   ],
   "targetDefaults": {
-    "test": {
-      "dependsOn": ["^build"]
+    "e2e-ci--**/*": {
+      "dependsOn": ["^export"]
     }
   }
 }
