@@ -38,6 +38,24 @@
       "options": {
         "passWithNoTests": true
       }
+    },
+    "migration-create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm migration:create ./apps/server/src/database/migrations/{args.name} --outputJs"
+      }
+    },
+    "migration-run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./apps/server/src/database/data-source.js"
+      }
+    },
+    "migration-revert": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./apps/server/src/database/data-source.js"
+      }
     }
   }
 }
