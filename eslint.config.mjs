@@ -1,5 +1,6 @@
-import nx from '@nx/eslint-plugin';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+
+import nx from '@nx/eslint-plugin';
 
 export default [
   ...nx.configs['flat/base'],
