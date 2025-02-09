@@ -1,11 +1,13 @@
+import { HttpStatus } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+
+import { JwtAuthGuard } from '@/authentication/guards/jwt-auth.guard';
+import { AuthenticatedRequest } from '@/authentication/interfaces/authenticated-request.interface';
+import { AppLogger } from '@/common/logger/app.logger';
+
+import { User } from './entities/users.entity';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
-import { JwtAuthGuard } from '@/authentication/guards/jwt-auth.guard';
-import { AppLogger } from '@/common/logger/app.logger';
-import { HttpStatus } from '@nestjs/common';
-import { AuthenticatedRequest } from '@/authentication/interfaces/authenticated-request.interface';
-import { User } from './entities/users.entity';
 
 describe('UsersController', () => {
   let controller: UsersController;

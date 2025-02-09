@@ -1,10 +1,13 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AuthService } from './auth.service';
-import { JwtService } from '@nestjs/jwt';
-import { UsersService } from '@/models/users/users.service';
-import { User } from '@/models/users/entities/users.entity';
-import { ErrorHttpException } from '@/common/exception/error-http.exception';
 import * as bcrypt from 'bcrypt';
+
+import { JwtService } from '@nestjs/jwt';
+import { Test, TestingModule } from '@nestjs/testing';
+
+import { ErrorHttpException } from '@/common/exception/error-http.exception';
+import { User } from '@/models/users/entities/users.entity';
+import { UsersService } from '@/models/users/users.service';
+
+import { AuthService } from './auth.service';
 
 jest.mock('bcrypt', () => ({
   compare: jest.fn(),
