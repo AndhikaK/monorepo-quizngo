@@ -11,6 +11,7 @@ export const envSchema = z.object({
   DB_HOST: z.string(),
   DB_PORT: z.coerce.number(),
   DB_NAME: z.string(),
+  DB_USER: z.string(),
   DB_PASSWORD: z.string(),
 
   CLOUDINARY_CLOUD_NAME: z.string(),

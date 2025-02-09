@@ -1,4 +1,4 @@
-const { Table, TableForeignKey } = require('typeorm');
+const { Table } = require('typeorm');
 
 module.exports = class CreateQuestions1675428934253 {
   async up(queryRunner) {
@@ -35,17 +35,6 @@ module.exports = class CreateQuestions1675428934253 {
             onUpdate: 'CURRENT_TIMESTAMP',
           },
         ],
-      })
-    );
-
-    // Add a foreign key constraint to "question_category_id"
-    await queryRunner.createForeignKey(
-      'questions',
-      new TableForeignKey({
-        columnNames: ['question_category_id'], // Column in the questions table
-        referencedColumnNames: ['id'], // Column in the question_categories table
-        referencedTableName: 'question_categories', // Referenced table
-        onDelete: 'CASCADE', // Cascade on delete
       })
     );
   }

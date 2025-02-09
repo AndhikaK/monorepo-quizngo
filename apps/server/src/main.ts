@@ -31,6 +31,8 @@ async function bootstrap() {
   // global filters
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  console.log(configService.get('CLOUDINARY_API_KEY'))
+
   const port = configService.get('PORT');
   await app.listen(port);
 

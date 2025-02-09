@@ -18,6 +18,8 @@ import { AppLogger } from '@/common/logger/app.logger';
 import { PathCurrentUserDto } from './dto/patch-current-user.dto';
 import { UsersService } from './users.service';
 
+import 'multer';
+
 @Controller({
   path: 'users',
 })

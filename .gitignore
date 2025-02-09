@@ -5,6 +5,11 @@ dist
 tmp
 out-tsc
 
+# envs
+*.env
+.env
+/.env
+
 # dependencies
 node_modules
 
@@ -55,10 +60,4 @@ npm-debug.*
 *.orig.*
 web-build/
 cache/
-*.env
-.env
-/.env
 
-# Next.js
-.next
-out
