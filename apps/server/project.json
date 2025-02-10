@@ -56,6 +56,10 @@
       "options": {
         "command": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./apps/server/src/database/data-source.js"
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build --platform linux/amd64 -f apps/server/Dockerfile . -t kissuki21/quizngo-server"
     }
   }
 }
