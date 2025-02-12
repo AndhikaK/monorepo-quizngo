@@ -33,3 +33,13 @@ Push the built image to Docker Hub:
 ```sh
 docker push kissuki21/quizngo-server:latest
 ```
+
+#### 4️⃣ Run the Docker Image on server
+
+On the server, make sure you are one the same folder as the `.env` files
+
+```sh
+docker run -d --name quizngo-server -p 3000:3000 \
+  --env-file .env \
+  kissuki21/quizngo-server
+```
