@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 
 import { EnvService } from '@/config/env/env.service';
-import { UserPreferences } from '@/models/users/entities/user-preferences.entity';
-import { User } from '@/models/users/entities/users.entity';
+import { UserPreferences } from '@/client/users/entities/user-preferences.entity';
+import { User } from '@/client/users/entities/users.entity';
 
 @Injectable()
 export class TypeOrmDatabaseProvider implements TypeOrmOptionsFactory {

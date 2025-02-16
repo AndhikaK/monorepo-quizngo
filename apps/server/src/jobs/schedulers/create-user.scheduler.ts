@@ -2,10 +2,10 @@ import { fakerID_ID as faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 
+import { ICreateUser } from '@/client/users/interfaces/create-user.interface';
+import { UsersService } from '@/client/users/users.service';
 import { AppLogger } from '@/common/logger/app.logger';
 import { EnvService } from '@/config/env/env.service';
-import { ICreateUser } from '@/models/users/interfaces/create-user.interface';
-import { UsersService } from '@/models/users/users.service';
 
 @Injectable()
 export class CreateUserJobScheduler {

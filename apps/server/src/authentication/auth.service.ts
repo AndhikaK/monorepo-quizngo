@@ -4,8 +4,8 @@ import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import { ErrorHttpException } from '@/common/exception/error-http.exception';
-import { User } from '@/models/users/entities/users.entity';
-import { UsersService } from '@/models/users/users.service';
+import { User } from '@/client/users/entities/users.entity';
+import { UsersService } from '@/client/users/users.service';
 
 import { RegisterDto } from './dto/register.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';

@@ -4,8 +4,8 @@ import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { ErrorHttpException } from '@/common/exception/error-http.exception';
-import { User } from '@/models/users/entities/users.entity';
-import { UsersService } from '@/models/users/users.service';
+import { User } from '@/client/users/entities/users.entity';
+import { UsersService } from '@/client/users/users.service';
 
 import { AuthService } from './auth.service';
 

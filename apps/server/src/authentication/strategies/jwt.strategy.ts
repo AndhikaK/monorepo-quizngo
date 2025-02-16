@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 
 import { EnvService } from '@/config/env/env.service';
-import { UsersService } from '@/models/users/users.service';
+import { UsersService } from '@/client/users/users.service';
 
 import { JwtPayload } from '../interfaces/jwt-payload.interface';
 

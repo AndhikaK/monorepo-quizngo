@@ -8,7 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { User } from '@/models/users/entities/users.entity';
+import { User } from '@/client/users/entities/users.entity';
 
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';

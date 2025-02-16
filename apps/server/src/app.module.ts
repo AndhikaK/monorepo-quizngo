@@ -5,8 +5,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { AuthModule } from '@/authentication/auth.module';
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
 import { JobsModule } from '@/jobs/jobs.module';
-import { QuestionsModule } from '@/models/questions/questions.module';
-import { UsersModule } from '@/models/users/users.module';
+import { QuestionsModule } from '@/client/questions/questions.module';
+import { UsersModule } from '@/client/users/users.module';
 
 import { CoreModule } from './core.module';
 
