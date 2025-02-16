@@ -17,5 +17,7 @@ export const envSchema = z.object({
   CLOUDINARY_CLOUD_NAME: z.string(),
   CLOUDINARY_API_KEY: z.string(),
   CLOUDINARY_API_SECRET: z.string(),
+
+  FLAGS_JOBS_CREATE_USER: z.enum(['ON', 'OFF']).default('OFF'),
 });
 export type Env = z.infer<typeof envSchema>;

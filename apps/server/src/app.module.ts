@@ -1,27 +1,20 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ScheduleModule } from '@nestjs/schedule';
 
 import { AuthModule } from '@/authentication/auth.module';
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
-import { envSchema } from '@/config/env/env';
-import { EnvModule } from '@/config/env/env.module';
+import { JobsModule } from '@/jobs/jobs.module';
 import { QuestionsModule } from '@/models/questions/questions.module';
 import { UsersModule } from '@/models/users/users.module';
-import { TypeOrmDatabaseProvider } from '@/providers/database/postgres/provider.module';
+
+import { CoreModule } from './core.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      validate: (env) => envSchema.parse(env),
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [EnvModule],
-      useClass: TypeOrmDatabaseProvider,
-    }),
-    EnvModule,
+    CoreModule,
+    ScheduleModule.forRoot(),
+    JobsModule,
     AuthModule,
     UsersModule,
     QuestionsModule,
