@@ -3,9 +3,9 @@ import * as bcrypt from 'bcrypt';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { ErrorHttpException } from '@/common/exception/error-http.exception';
 import { User } from '@/client/users/entities/users.entity';
 import { UsersService } from '@/client/users/users.service';
+import { ErrorHttpException } from '@/common/exception/error-http.exception';
 
 import { RegisterDto } from './dto/register.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';

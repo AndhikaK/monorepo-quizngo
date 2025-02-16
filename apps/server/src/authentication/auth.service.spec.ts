@@ -3,9 +3,9 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { ErrorHttpException } from '@/common/exception/error-http.exception';
 import { User } from '@/client/users/entities/users.entity';
 import { UsersService } from '@/client/users/users.service';
+import { ErrorHttpException } from '@/common/exception/error-http.exception';
 
 import { AuthService } from './auth.service';
 

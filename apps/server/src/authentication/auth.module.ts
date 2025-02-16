@@ -3,9 +3,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
 import { LocalStrategy } from '@/authentication/strategies/local.strategy';
+import { UsersModule } from '@/client/users/users.module';
 import { EnvModule } from '@/config/env/env.module';
 import { EnvService } from '@/config/env/env.service';
-import { UsersModule } from '@/client/users/users.module';
 
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AuthController } from './auth.controller';
