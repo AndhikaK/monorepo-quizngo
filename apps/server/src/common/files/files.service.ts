@@ -48,6 +48,6 @@ export class FilesService {
       }
     );
 
-    return uploadResult.url;
+    return `${uploadResult.public_id}.${uploadResult.format}`;
   }
 }

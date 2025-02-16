@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
-import { FilesService } from '../files/files.service';
+import { FilesService } from '../../common/files/files.service';
 
 import { User } from './entities/users.entity';
 import { UsersService } from './users.service';

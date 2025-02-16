@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { FilesService } from '@/client/files/files.service';
+import { FilesService } from '@/common/files/files.service';
 
 import { User } from './entities/users.entity';
 import { ICreateUser } from './interfaces/create-user.interface';

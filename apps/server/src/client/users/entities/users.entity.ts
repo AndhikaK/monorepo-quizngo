@@ -1,4 +1,4 @@
-import { Exclude } from 'class-transformer';
+import { Exclude, Transform } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -9,6 +9,8 @@ import {
 } from 'typeorm';
 
 import { UserPreferences } from './user-preferences.entity';
+
+const CLOUNDINARY_IMAGE_PATH = process.env.CLOUNDINARY_IMAGE_PATH;
 
 @Entity('users') // Table name
 export class User {
@@ -26,6 +28,9 @@ export class User {
   password: string;
 
   @Column({ nullable: true })
+  @Transform(({ value }) =>
+    value ? `${CLOUNDINARY_IMAGE_PATH}${value}` : null
+  )
   display_picture_url: string;
 
   @CreateDateColumn({ name: 'created_at' })
