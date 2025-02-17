@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
 
+import { AdminModule } from '@/admin/admin.module';
 import { AuthModule } from '@/authentication/auth.module';
 import { ClientModule } from '@/client/client.module';
 import { HttpExceptionFilter } from '@/common/exception/http-exception.filter';
@@ -15,6 +16,7 @@ import { CoreModule } from './core.module';
     ScheduleModule.forRoot(),
     AuthModule,
     ClientModule,
+    AdminModule,
     JobsModule,
   ],
   providers: [{ provide: APP_FILTER, useClass: HttpExceptionFilter }],
