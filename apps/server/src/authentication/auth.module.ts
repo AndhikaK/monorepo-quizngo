@@ -6,6 +6,7 @@ import { LocalStrategy } from '@/authentication/strategies/local.strategy';
 import { UsersModule } from '@/client/users/users.module';
 import { EnvModule } from '@/config/env/env.module';
 import { EnvService } from '@/config/env/env.service';
+import { FeatureFlagModule } from '@/config/feature-flag/feature-flag.module';
 
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AuthController } from './auth.controller';
@@ -16,6 +17,7 @@ import { AuthService } from './auth.service';
     UsersModule,
     PassportModule,
     EnvModule,
+    FeatureFlagModule,
     JwtModule.registerAsync({
       imports: [EnvModule],
       inject: [EnvService],

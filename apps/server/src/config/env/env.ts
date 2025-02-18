@@ -20,5 +20,7 @@ export const envSchema = z.object({
   CLOUNDINARY_IMAGE_PATH: z.string(),
 
   FLAGS_JOBS_CREATE_USER: z.enum(['ON', 'OFF']).default('OFF'),
+
+  POSTHOG_API_KEY: z.string(),
 });
 export type Env = z.infer<typeof envSchema>;

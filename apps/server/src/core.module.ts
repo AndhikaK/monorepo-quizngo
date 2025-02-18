@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { EnvModule } from './config/env/env.module';
-import { TypeOrmDatabaseProvider } from './providers/database/postgres/provider.module';
+import { EnvModule } from '@/config/env/env.module';
+import { FeatureFlagModule } from '@/config/feature-flag/feature-flag.module';
+import { PosthogModule } from '@/libs/posthog/posthog.module';
+import { TypeOrmDatabaseProvider } from '@/providers/database/postgres/provider.module';
 
 @Module({
   imports: [
@@ -15,7 +17,15 @@ import { TypeOrmDatabaseProvider } from './providers/database/postgres/provider.
       useClass: TypeOrmDatabaseProvider,
     }),
     EnvModule,
+    PosthogModule,
+    FeatureFlagModule,
   ],
-  exports: [ConfigModule, TypeOrmModule, EnvModule],
+  exports: [
+    ConfigModule,
+    TypeOrmModule,
+    EnvModule,
+    PosthogModule,
+    FeatureFlagModule,
+  ],
 })
 export class CoreModule {}

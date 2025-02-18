@@ -9,6 +9,8 @@ import {
 } from '@nestjs/common';
 
 import { User } from '@/client/users/entities/users.entity';
+import { AppLogger } from '@/common/logger/app.logger';
+import { FeatureFlagService } from '@/config/feature-flag/feature-flag.service';
 
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
@@ -18,13 +20,24 @@ import { AuthService } from './auth.service';
   path: 'auth',
 })
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  private logger = new AppLogger();
+
+  constructor(
+    private authService: AuthService,
+    private featureFlagService: FeatureFlagService
+  ) {}
 
   @Post('/login')
   @HttpCode(HttpStatus.OK)
   @UseGuards(LocalAuthGuard)
-  login(@Request() req: Request & { user: User }) {
-    return this.authService.login(req.user);
+  async login(@Request() req: Request & { user: User }) {
+    const isLoginEnabled = await this.featureFlagService.isFeatureEnabled(
+      'is_login_enabled'
+    );
+
+    console.log('FeatureFlag' + JSON.stringify(isLoginEnabled));
+
+    return 'hehe';
   }
 
   @Post('/register')
