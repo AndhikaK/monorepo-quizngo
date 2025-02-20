@@ -1,4 +1,4 @@
-export default {
+const config = {
   displayName: 'admin',
   preset: '../../jest.preset.js',
   transform: {
@@ -8,3 +8,5 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/admin',
 };
+
+export default config;
