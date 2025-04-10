@@ -7,6 +7,9 @@ out-tsc
 
 # envs
 *.env
+.env.admin
+.env.server
+.env.*
 .env
 /.env
 
