@@ -1,4 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # compiled output
 dist
@@ -41,18 +41,6 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
-# Expo
-node_modules/
-.expo/
-.yarn/
-dist/
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-cache/
-
+# Next.js
+.next
+out
