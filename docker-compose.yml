@@ -4,7 +4,31 @@ services:
   server:
     image: kissuki21/quizngo-server
     ports:
-      - '4000:4000'
+      - '${PORT}:${PORT}'
     volumes:
       - .:/app
       - /app/node_modules
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      PORT: ${PORT}
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      - '${DB_PORT}:5432'
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

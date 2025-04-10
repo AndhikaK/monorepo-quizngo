@@ -1,0 +1,33 @@
+# FROM node:lts-alpine
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# WORKDIR /app/apps/server
+# CMD ["npm", "run", "start:dev"]
+
+# Dockerfile.server.dev
+
+FROM node:lts-alpine
+
+# Optional: speeds up builds
+ENV NODE_ENV=development
+
+# Create app directory
+WORKDIR /app
+
+# Install dependencies (use core package.json in root)
+COPY package*.json ./
+COPY package-lock.json* ./
+COPY nx.json* ./
+COPY tsconfig.base.json* ./
+RUN npm install -g nx && npm install
+
+# Copy all monorepo files
+COPY . .
+
+# Move to the server app directory
+WORKDIR /app/apps/server
+
+# Run the dev server (auto restarts with changes)
+CMD ["npx", "nx", "serve", "server"]

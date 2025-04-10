@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.server.dev
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    env_file:
+      - .env.server
+    environment:
+      NODE_ENV: development
+
+  admin:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.admin.dev
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    env_file:
+      - .env.admin
+    environment:
+      NODE_ENV: development

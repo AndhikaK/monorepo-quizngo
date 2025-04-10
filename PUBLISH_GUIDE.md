@@ -23,7 +23,7 @@ docker login
 Use Nx to build the Docker image for the server:
 
 ```sh
-nx run server:build-docker
+nx run server:docker-build
 ```
 
 #### 3️⃣ Publish to Docker Hub

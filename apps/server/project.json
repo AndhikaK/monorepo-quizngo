@@ -60,6 +60,20 @@
     "docker-build": {
       "dependsOn": ["build"],
       "command": "docker build --platform linux/amd64 -f apps/server/Dockerfile . -t kissuki21/quizngo-server"
+    },
+    "docker-dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.yml up --build server",
+        "cwd": "deployment"
+      }
+    },
+    "docker-prod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.prod.yml up --build server",
+        "cwd": "deployment"
+      }
     }
   }
 }
