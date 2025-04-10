@@ -48,4 +48,4 @@ out
 test-output
 
 !**/.env.example
-!**/.env.*
+**/.env.*
