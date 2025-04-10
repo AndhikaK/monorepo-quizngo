@@ -1,4 +1,4 @@
-const config = {
+export default {
   displayName: 'admin',
   preset: '../../jest.preset.js',
   transform: {
@@ -6,7 +6,5 @@ const config = {
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/next/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/admin',
+  coverageDirectory: 'test-output/jest/coverage',
 };
-
-export default config;
